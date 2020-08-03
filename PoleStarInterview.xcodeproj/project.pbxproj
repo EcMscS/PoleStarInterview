@@ -9,21 +9,43 @@
 /* Begin PBXBuildFile section */
 		23DB28F024D8A687002CDD5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB28EF24D8A687002CDD5B /* AppDelegate.swift */; };
 		23DB28F224D8A687002CDD5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB28F124D8A687002CDD5B /* SceneDelegate.swift */; };
-		23DB28F424D8A687002CDD5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB28F324D8A687002CDD5B /* ViewController.swift */; };
 		23DB28F724D8A687002CDD5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DB28F524D8A687002CDD5B /* Main.storyboard */; };
 		23DB28F924D8A689002CDD5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23DB28F824D8A689002CDD5B /* Assets.xcassets */; };
 		23DB28FC24D8A689002CDD5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DB28FA24D8A689002CDD5B /* LaunchScreen.storyboard */; };
+		23DB290624D8A7C2002CDD5B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB290524D8A7C2002CDD5B /* NetworkManager.swift */; };
+		23DB290A24D8A82C002CDD5B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB290924D8A82C002CDD5B /* SearchVC.swift */; };
+		23DB290E24D8A8C1002CDD5B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB290D24D8A8C1002CDD5B /* CustomTextField.swift */; };
+		23DB291124D8A9AE002CDD5B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB291024D8A9AE002CDD5B /* CustomButton.swift */; };
+		23DB291324D8ABF8002CDD5B /* TwitterHandleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB291224D8ABF8002CDD5B /* TwitterHandleListVC.swift */; };
+		23DB291624D8AFAF002CDD5B /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB291524D8AFAF002CDD5B /* UIViewController+Ext.swift */; };
+		23DB291924D8B03E002CDD5B /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB291824D8B03E002CDD5B /* CustomAlertVC.swift */; };
+		23DB291C24D8B0A9002CDD5B /* CustomTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB291B24D8B0A9002CDD5B /* CustomTitleLabel.swift */; };
+		23DB291E24D8B0B3002CDD5B /* CustomBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB291D24D8B0B3002CDD5B /* CustomBodyLabel.swift */; };
+		23DB292124D8B6B2002CDD5B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB292024D8B6B2002CDD5B /* Constants.swift */; };
+		23DB292324D8B7AB002CDD5B /* TwitterHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB292224D8B7AB002CDD5B /* TwitterHandle.swift */; };
+		23DB292524D8C2AD002CDD5B /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB292424D8C2AD002CDD5B /* CustomError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23DB28EC24D8A687002CDD5B /* PoleStarInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoleStarInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23DB28EF24D8A687002CDD5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23DB28F124D8A687002CDD5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		23DB28F324D8A687002CDD5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		23DB28F624D8A687002CDD5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23DB28F824D8A689002CDD5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23DB28FB24D8A689002CDD5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23DB28FD24D8A689002CDD5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23DB290524D8A7C2002CDD5B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		23DB290924D8A82C002CDD5B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		23DB290D24D8A8C1002CDD5B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		23DB291024D8A9AE002CDD5B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		23DB291224D8ABF8002CDD5B /* TwitterHandleListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterHandleListVC.swift; sourceTree = "<group>"; };
+		23DB291524D8AFAF002CDD5B /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		23DB291824D8B03E002CDD5B /* CustomAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertVC.swift; sourceTree = "<group>"; };
+		23DB291B24D8B0A9002CDD5B /* CustomTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitleLabel.swift; sourceTree = "<group>"; };
+		23DB291D24D8B0B3002CDD5B /* CustomBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBodyLabel.swift; sourceTree = "<group>"; };
+		23DB292024D8B6B2002CDD5B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		23DB292224D8B7AB002CDD5B /* TwitterHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterHandle.swift; sourceTree = "<group>"; };
+		23DB292424D8C2AD002CDD5B /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +78,114 @@
 		23DB28EE24D8A687002CDD5B /* PoleStarInterview */ = {
 			isa = PBXGroup;
 			children = (
-				23DB28EF24D8A687002CDD5B /* AppDelegate.swift */,
-				23DB28F124D8A687002CDD5B /* SceneDelegate.swift */,
-				23DB28F324D8A687002CDD5B /* ViewController.swift */,
+				23DB290424D8A7AB002CDD5B /* Managers */,
+				23DB290724D8A7F5002CDD5B /* Model */,
+				23DB290824D8A808002CDD5B /* Screens */,
+				23DB290B24D8A891002CDD5B /* Custom Views */,
+				23DB291424D8AF88002CDD5B /* Extensions */,
+				23DB291F24D8B696002CDD5B /* Utilities */,
+				23DB290324D8A72E002CDD5B /* Support */,
 				23DB28F524D8A687002CDD5B /* Main.storyboard */,
-				23DB28F824D8A689002CDD5B /* Assets.xcassets */,
-				23DB28FA24D8A689002CDD5B /* LaunchScreen.storyboard */,
 				23DB28FD24D8A689002CDD5B /* Info.plist */,
 			);
 			path = PoleStarInterview;
+			sourceTree = "<group>";
+		};
+		23DB290324D8A72E002CDD5B /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				23DB28EF24D8A687002CDD5B /* AppDelegate.swift */,
+				23DB28F124D8A687002CDD5B /* SceneDelegate.swift */,
+				23DB28F824D8A689002CDD5B /* Assets.xcassets */,
+				23DB28FA24D8A689002CDD5B /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		23DB290424D8A7AB002CDD5B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				23DB290524D8A7C2002CDD5B /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		23DB290724D8A7F5002CDD5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23DB292224D8B7AB002CDD5B /* TwitterHandle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		23DB290824D8A808002CDD5B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				23DB290924D8A82C002CDD5B /* SearchVC.swift */,
+				23DB291224D8ABF8002CDD5B /* TwitterHandleListVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		23DB290B24D8A891002CDD5B /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				23DB291A24D8B091002CDD5B /* Labels */,
+				23DB291724D8B02A002CDD5B /* ViewControllers */,
+				23DB290F24D8A994002CDD5B /* Buttons */,
+				23DB290C24D8A8A5002CDD5B /* TextFields */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		23DB290C24D8A8A5002CDD5B /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				23DB290D24D8A8C1002CDD5B /* CustomTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		23DB290F24D8A994002CDD5B /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				23DB291024D8A9AE002CDD5B /* CustomButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		23DB291424D8AF88002CDD5B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23DB291524D8AFAF002CDD5B /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		23DB291724D8B02A002CDD5B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				23DB291824D8B03E002CDD5B /* CustomAlertVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		23DB291A24D8B091002CDD5B /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				23DB291B24D8B0A9002CDD5B /* CustomTitleLabel.swift */,
+				23DB291D24D8B0B3002CDD5B /* CustomBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		23DB291F24D8B696002CDD5B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				23DB292024D8B6B2002CDD5B /* Constants.swift */,
+				23DB292424D8C2AD002CDD5B /* CustomError.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +259,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23DB28F424D8A687002CDD5B /* ViewController.swift in Sources */,
+				23DB291324D8ABF8002CDD5B /* TwitterHandleListVC.swift in Sources */,
+				23DB290624D8A7C2002CDD5B /* NetworkManager.swift in Sources */,
+				23DB290A24D8A82C002CDD5B /* SearchVC.swift in Sources */,
+				23DB290E24D8A8C1002CDD5B /* CustomTextField.swift in Sources */,
+				23DB291E24D8B0B3002CDD5B /* CustomBodyLabel.swift in Sources */,
+				23DB291124D8A9AE002CDD5B /* CustomButton.swift in Sources */,
 				23DB28F024D8A687002CDD5B /* AppDelegate.swift in Sources */,
+				23DB292524D8C2AD002CDD5B /* CustomError.swift in Sources */,
+				23DB291C24D8B0A9002CDD5B /* CustomTitleLabel.swift in Sources */,
+				23DB292324D8B7AB002CDD5B /* TwitterHandle.swift in Sources */,
 				23DB28F224D8A687002CDD5B /* SceneDelegate.swift in Sources */,
+				23DB291924D8B03E002CDD5B /* CustomAlertVC.swift in Sources */,
+				23DB291624D8AFAF002CDD5B /* UIViewController+Ext.swift in Sources */,
+				23DB292124D8B6B2002CDD5B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +419,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R3ZLU447Q3;
 				INFOPLIST_FILE = PoleStarInterview/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +427,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrishefferman.PoleStarInterview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,6 +438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R3ZLU447Q3;
 				INFOPLIST_FILE = PoleStarInterview/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +446,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrishefferman.PoleStarInterview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
