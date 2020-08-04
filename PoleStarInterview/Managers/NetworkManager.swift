@@ -12,12 +12,14 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     private let baseURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
+    let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     
     func getTwitterFeed(for username: String, numberOfTweets: Int, completed: @escaping (Result<[TwitterHandle], CustomError>) -> Void) {
         let endpoint = baseURL + "\(username)&count=\(numberOfTweets)"
-        var request = URLRequest(url: URL(string: "\(endpoint)")!)
+        let defaultURL = URL(string: "\(baseURL)")!
+        var request = URLRequest(url: URL(string: "\(endpoint)") ?? defaultURL)
         request.addValue("Bearer \(Authentication.bearerToken)", forHTTPHeaderField: "Authorization")
         
         
