@@ -11,6 +11,7 @@ import Foundation
 struct TwitterHandle: Codable {
     var user: User
     var text: String
+    var favorite_count: Int
 }
 
 

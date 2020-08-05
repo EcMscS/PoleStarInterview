@@ -69,6 +69,7 @@ class TwitterHandleListVC: UITableViewController {
             switch result {
             case .success(let tweets):
                 if tweets.count < 10 { self.hasMoreTweets = false }
+                
                 self.returnedTweets.removeAll()
                 self.returnedTweets.append(contentsOf: tweets)
                 

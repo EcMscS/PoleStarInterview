@@ -14,6 +14,8 @@ class CustomTweetCell: UITableViewCell {
     let avatarImageView = CustomImageView(frame: .zero)
     let nameLabel = UILabel()
     let handleLabel = UILabel()
+    let likeCounterLabel = UILabel()
+    let retweetCounterLabel = UILabel()
     let tweetLabel = UILabel()
     
     
@@ -33,6 +35,7 @@ class CustomTweetCell: UITableViewCell {
             avatarImageView.downloadImage(from: tweet.user.profile_image_url)
             nameLabel.text = tweet.user.name
             handleLabel.text = "@\(tweet.user.screen_name)"
+            likeCounterLabel.text = "♥️ \(tweet.favorite_count)"
             tweetLabel.text = tweet.text
         }
     }
@@ -43,6 +46,7 @@ class CustomTweetCell: UITableViewCell {
         configureAvatarImageView()
         configureNameLabel()
         configureHandleLabel()
+        configureLikeCounterLabel()
         configureTweetLabel()
     }
 
@@ -114,6 +118,21 @@ class CustomTweetCell: UITableViewCell {
             handleLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
             handleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
             handleLabel.heightAnchor.constraint(equalToConstant: 20),
+        ])
+    }
+    
+    
+    func configureLikeCounterLabel() {
+        containerView.addSubview(likeCounterLabel)
+        likeCounterLabel.textAlignment = .right
+        likeCounterLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        likeCounterLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            likeCounterLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            likeCounterLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            likeCounterLabel.heightAnchor.constraint(equalToConstant: 20),
+            likeCounterLabel.widthAnchor.constraint(equalToConstant: 80)
         ])
     }
     
