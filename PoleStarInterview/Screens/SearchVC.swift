@@ -48,6 +48,7 @@ class SearchVC: UIViewController {
         let twitterHandleList = TwitterHandleListVC()
         twitterHandleList.username = usernameTextField.text
         twitterHandleList.title = usernameTextField.text
+        
         navigationController?.pushViewController(twitterHandleList, animated: true)
     }
     
@@ -91,6 +92,7 @@ class SearchVC: UIViewController {
         ])
     }
 }
+
 
 extension SearchVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

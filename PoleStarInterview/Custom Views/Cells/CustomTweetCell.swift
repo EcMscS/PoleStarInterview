@@ -9,12 +9,11 @@
 import UIKit
 
 class CustomTweetCell: UITableViewCell {
-    
-    static let reuseID = "TweetCell"
-    
+
     let containerView = UIView()
     let avatarImageView = CustomImageView(frame: .zero)
     let nameLabel = UILabel()
+    let handleLabel = UILabel()
     let tweetLabel = UILabel()
     
     
@@ -23,34 +22,114 @@ class CustomTweetCell: UITableViewCell {
     }
     
     
-    func set(tweetsFor: TwitterHandle) {
-        avatarImageView.downloadImage(from: tweetsFor.user.profile_image_url)
-        nameLabel.text = tweetsFor.user.name
-        tweetLabel.text = tweetsFor.text
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureUI()
     }
     
     
-    private func configureContainerView() {
-        addSubview(containerView)
-        containerView.layer.cornerRadius = 16
+    func set(data: [TwitterHandle]) {
+        for tweet in data {
+            avatarImageView.downloadImage(from: tweet.user.profile_image_url)
+            nameLabel.text = tweet.user.name
+            handleLabel.text = "@\(tweet.user.screen_name)"
+            tweetLabel.text = tweet.text
+        }
+    }
+    
+    
+    func configureUI() {
+        configureContainerView()
+        configureAvatarImageView()
+        configureNameLabel()
+        configureHandleLabel()
+        configureTweetLabel()
+    }
+
+    
+    func configureContainerView() {
+        self.contentView.addSubview(containerView)
+        containerView.layer.cornerRadius = 17
         containerView.backgroundColor = .tertiarySystemBackground
         
         if traitCollection.userInterfaceStyle == .light {
             containerView.layer.shadowColor = UIColor.gray.cgColor
             containerView.layer.shadowOffset = CGSize.zero
-            containerView.layer.shadowRadius = 15
-            containerView.layer.shadowOpacity = 0.9
+            containerView.layer.shadowRadius = 10
+            containerView.layer.shadowOpacity = 0.4
         }
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        let padding: CGFloat = 10
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            containerView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            containerView.heightAnchor.constraint(equalToConstant: 150),
+        ])
+    }
+    
+    
+    func configureAvatarImageView() {
+        containerView.addSubview(avatarImageView)
+        avatarImageView.layer.cornerRadius = 20
+        avatarImageView.layer.masksToBounds = true
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding),
+            avatarImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            avatarImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 40),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    
+    func configureNameLabel() {
+        containerView.addSubview(nameLabel)
+        nameLabel.numberOfLines = 1
+        nameLabel.font = .boldSystemFont(ofSize: 20)
+        nameLabel.clipsToBounds = false
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
+            nameLabel.heightAnchor.constraint(equalToConstant: 20),
+        ])
+    }
+    
+    
+    func configureHandleLabel() {
+        containerView.addSubview(handleLabel)
+        handleLabel.numberOfLines = 1
+        handleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        handleLabel.textColor = .secondaryLabel
+        handleLabel.clipsToBounds = false
+        handleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            handleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0),
+            handleLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
+            handleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
+            handleLabel.heightAnchor.constraint(equalToConstant: 20),
+        ])
+    }
+    
+    
+    func configureTweetLabel() {
+        containerView.addSubview(tweetLabel)
+        tweetLabel.numberOfLines = 0
+        tweetLabel.adjustsFontSizeToFitWidth = true
+        tweetLabel.clipsToBounds = false
+        tweetLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            tweetLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 5),
+            tweetLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15),
+            tweetLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
+            tweetLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -15)
         ])
     }
 }

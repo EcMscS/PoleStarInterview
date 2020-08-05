@@ -13,10 +13,9 @@ struct TwitterHandle: Codable {
     var text: String
 }
 
+
 struct User: Codable {
     var screen_name: String
     var name: String
-    var location: String
-    var description: String
     var profile_image_url: String
 }

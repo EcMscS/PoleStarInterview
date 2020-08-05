@@ -11,14 +11,16 @@ import UIKit
 class TwitterHandleListVC: UITableViewController {
     
     var username: String!
-    var returnedTweets = [TwitterHandle]()
+    var returnedTweets: [TwitterHandle] = []
+    var numberOfTweets = 10
+    var hasMoreTweets = true
     let reuseID = "TweetCell"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        getTweets(username: username, numberOfTweets: 10)
+        getTweets(username: username, numberOfTweets: numberOfTweets)
     }
     
     
@@ -31,6 +33,7 @@ class TwitterHandleListVC: UITableViewController {
     func configureTableView() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.register(CustomTweetCell.self, forCellReuseIdentifier: reuseID)
@@ -65,7 +68,10 @@ class TwitterHandleListVC: UITableViewController {
             
             switch result {
             case .success(let tweets):
+                if tweets.count < 10 { self.hasMoreTweets = false }
+                self.returnedTweets.removeAll()
                 self.returnedTweets.append(contentsOf: tweets)
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -73,6 +79,22 @@ class TwitterHandleListVC: UITableViewController {
             case .failure(let error):
                 self.presentCustomAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "OK")
             }
+        }
+    }
+}
+
+
+extension TwitterHandleListVC: UICollectionViewDelegate {
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            guard hasMoreTweets else { return }
+            numberOfTweets += 10
+            getTweets(username: username, numberOfTweets: numberOfTweets)
         }
     }
 }

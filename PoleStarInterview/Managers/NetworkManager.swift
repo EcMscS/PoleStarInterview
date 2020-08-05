@@ -22,7 +22,6 @@ class NetworkManager {
         var request = URLRequest(url: URL(string: "\(endpoint)") ?? defaultURL)
         request.addValue("Bearer \(Authentication.bearerToken)", forHTTPHeaderField: "Authorization")
         
-        
         guard URL(string: endpoint) != nil else {
             completed(.failure(.invalidUsername))
             return
