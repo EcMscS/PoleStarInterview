@@ -8,21 +8,17 @@
 
 import UIKit
 
-class TwitterHandleListVC: UIViewController {
+class TwitterHandleListVC: UITableViewController {
     
     var username: String!
-    var tweets = 1
+    var returnedTweets = [TwitterHandle]()
+    let reuseID = "TweetCell"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getTweets(username: username, tweets: tweets)
-        configureViewController()
-        
-        configureContainerView()
-        configureAvatarImageView()
-        configureNameLabel()
-        configureTweetLabel()
+        configureTableView()
+        getTweets(username: username, numberOfTweets: 10)
     }
     
     
@@ -32,105 +28,51 @@ class TwitterHandleListVC: UIViewController {
     }
     
     
-    func configureViewController() {
+    func configureTableView() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.register(CustomTweetCell.self, forCellReuseIdentifier: reuseID)
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return returnedTweets.count
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 185
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID) as! CustomTweetCell
+     
+        let savedTweets = self.returnedTweets[indexPath.row]
+        cell.set(data: [savedTweets])
+        
+        return cell
     }
 
     
-    func getTweets(username: String, tweets: Int) {
+    func getTweets(username: String, numberOfTweets: Int) {
         showLoadingView()
-        NetworkManager.shared.getTwitterFeed(for: username, numberOfTweets: tweets) { [weak self] result in
+        NetworkManager.shared.getTwitterFeed(for: username, numberOfTweets: numberOfTweets) { [weak self] result in
             guard let self = self else { return }
             self.dismissLoadingView()
             
             switch result {
             case .success(let tweets):
-                print("TWEETS: \(tweets)")
-                
+                self.returnedTweets.append(contentsOf: tweets)
                 DispatchQueue.main.async {
-                    self.nameLabel.text = tweets[0].user.name
-                    self.tweetLabel.text = tweets[0].text
-                    self.avatarImageView.downloadImage(from: tweets[0].user.profile_image_url)
+                    self.tableView.reloadData()
                 }
                 
             case .failure(let error):
                 self.presentCustomAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "OK")
             }
         }
-    }
-    
-    //BREAK
-    
-    let containerView = UIView()
-    let avatarImageView = CustomImageView(frame: .zero)
-    let nameLabel = UILabel()
-    let tweetLabel = UILabel()
-    
-    
-    func configureContainerView() {
-        view.addSubview(containerView)
-        containerView.layer.cornerRadius = 15
-        containerView.layer.shadowColor = UIColor.gray.cgColor
-        containerView.layer.shadowOffset = CGSize.zero
-        containerView.layer.shadowRadius = 7.5
-        containerView.layer.shadowOpacity = 0.2
-        containerView.backgroundColor = .systemBlue
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            containerView.heightAnchor.constraint(equalToConstant: 150),
-        ])
-        
-    }
-    
-    
-    func configureAvatarImageView() {
-        containerView.addSubview(avatarImageView)
-        avatarImageView.layer.cornerRadius = 30
-        avatarImageView.layer.masksToBounds = true
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
-            avatarImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 60),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 60)
-        ])
-    }
-    
-    
-    func configureNameLabel() {
-        containerView.addSubview(nameLabel)
-        nameLabel.numberOfLines = 1
-        nameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        nameLabel.clipsToBounds = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15),
-            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
-            nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
-            nameLabel.heightAnchor.constraint(equalToConstant: 50),
-        ])
-    }
-    
-    
-    func configureTweetLabel() {
-        containerView.addSubview(tweetLabel)
-        tweetLabel.numberOfLines = 0
-        tweetLabel.adjustsFontSizeToFitWidth = true
-        tweetLabel.clipsToBounds = false
-        tweetLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            tweetLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 5),
-            tweetLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15),
-            tweetLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
-            tweetLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -15)
-        ])
     }
 }
