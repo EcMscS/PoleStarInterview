@@ -12,7 +12,7 @@ class SearchVC: UIViewController {
     
     let logoImageView = UIImageView()
     let usernameTextField = CustomTextField()
-    let callToActionButton = CustomButton(backgroundColor: .systemGreen, title: "See Twitter Feed")
+    let callToActionButton = CustomButton(backgroundColor: .systemPink, title: "See Twitter Feed")
     
     var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
     
@@ -24,6 +24,8 @@ class SearchVC: UIViewController {
         configureTextField()
         configureActionButton()
         createDismissKeyboardTapGesture()
+        
+        presentWelcomeAlertOnMainThread(title: "Welcome", message: NewVersion.welcome.rawValue, buttonTitle: "OK")
     }
     
     

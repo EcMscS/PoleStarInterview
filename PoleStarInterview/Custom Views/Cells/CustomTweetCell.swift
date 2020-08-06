@@ -15,7 +15,6 @@ class CustomTweetCell: UITableViewCell {
     let nameLabel = UILabel()
     let handleLabel = UILabel()
     let likeCounterLabel = UILabel()
-    let retweetCounterLabel = UILabel()
     let tweetLabel = UILabel()
     
     
