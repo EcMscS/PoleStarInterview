@@ -8,7 +8,7 @@ Please download the project, open the 'PoleStarInterview.xcodeproj.zip' file and
 ## Resources Used
 
 * [Apple Docs](https://developer.apple.com/documentation/)
-* [Twitter API Docs] (https://developer.twitter.com/en/docs)
+* [Twitter API Docs](https://developer.twitter.com/en/docs)
 * [Sean Allen YouTube](https://www.youtube.com/channel/UCbTw29mcP12YlTt1EpUaVJw) 
 * [Hacking With Swift](https://www.hackingwithswift.com)
 * [JSON Editor Online](https://jsoneditoronline.org)
